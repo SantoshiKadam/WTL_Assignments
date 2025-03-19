@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Square Sections</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .section {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        #html {
+            background-color: #e44d26;
+        }
+        #css {
+            background-color: #264de4;
+        }
+        #javascript {
+            background-color: #f0db4f;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section" id="html">HTML</div>
+    </div>
+    <div class="container">
+        <div class="section" id="css">CSS</div>
+    </div>
+    <div class="container">
+        <div class="section" id="javascript">JavaScript</div>
+    </div>
+</body>
+</html>

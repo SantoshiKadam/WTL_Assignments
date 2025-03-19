@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <input type="text" id="name" placeholder="Full Name">
+            <div class="error" id="nameError"></div>
+            
+            <input type="email" id="email" placeholder="Email">
+            <div class="error" id="emailError"></div>
+            
+            <input type="password" id="password" placeholder="Password">
+            <div class="error" id="passwordError"></div>
+            
+            <input type="text" id="phone" placeholder="Phone Number">
+            <div class="error" id="phoneError"></div>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(el => el.innerText = '');
+            
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let phone = document.getElementById("phone").value;
+            
+            if (name.trim() === "") {
+                document.getElementById("nameError").innerText = "Name is required";
+                valid = false;
+            }
+            
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Invalid email format";
+                valid = false;
+            }
+            
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                valid = false;
+            }
+            
+            let phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").innerText = "Invalid phone number";
+                valid = false;
+            }
+            
+            return valid;
+        }
+    </script>
+</body>
+</html>
